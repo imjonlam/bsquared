@@ -14,6 +14,8 @@ const readCSV = (url) => {
   return new Promise((resolve, reject) => {
     readRemoteFile(url, {
       header: true,
+      dynamicTyping: true,
+      skipEmptyLines: true,
       complete: (results) => {
         resolve(results.data);
       },
