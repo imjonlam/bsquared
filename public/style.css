@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #36393F;
+  color: #FFFFFF;
+}
+
+#title {
+  margin-top: -4px;
+}
+
+#titlebar {
+  height: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #202225;
+  -webkit-app-region: drag;
+}
+
+#titlebar > div {
+  height: 100%;
+}
+
+#titlebar button {
+  height: 100%;
+  padding: 0 15px;
+  outline: none;
+  color: #FFFFFF;
+  background: none;
+  -webkit-app-region: no-drag;
+}
+
+#titlebar button:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+#titlebar button:active {
+  background-color: rgba(255,255,255,0.2);
+}
+
+#close-btn:hover {
+  background-color: #E81123 !important;
+}
+
+#close-btn:active {
+  color: #000000;
+  background-color: #F1707A !important;
+}
+
+#root {
+  height: calc(100vh - 32px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

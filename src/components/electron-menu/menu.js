@@ -1,3 +1,4 @@
+const { Menu } = require('electron');
 const { getFile } = require('./getFile')
 
 template = [
@@ -58,4 +59,7 @@ template = [
   }
 ]
 
-module.exports = template;
+const menu = Menu.buildFromTemplate(template);
+Menu.setApplicationMenu(menu);
+
+module.exports = menu;
