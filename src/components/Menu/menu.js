@@ -1,5 +1,5 @@
 const { Menu } = require('electron');
-const { getFile } = require('./getFile')
+const { loadData } = require('./menu_scripts')
 
 template = [
   {
@@ -8,7 +8,7 @@ template = [
       {
         label: 'Load Data',
         click: async() => {
-          getFile();
+          loadData();
         }
       },
       { type: 'separator'},

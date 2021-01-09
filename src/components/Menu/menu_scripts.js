@@ -1,6 +1,6 @@
 const { dialog, BrowserWindow } = require('electron');
 
-exports.getFile = () => {
+function loadData() {
   dialog.showOpenDialog({
     properties: ['openFile'],
     // filters: [{ name: 'Data', extensions: ['csv'] }]
@@ -10,3 +10,5 @@ exports.getFile = () => {
     }
   });
 }
+
+module.exports = { loadData };

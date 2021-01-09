@@ -1,5 +1,5 @@
 const path = require('path');
-const menu = require('./src/components/electron-menu/menu');
+const menu = require('./src/components/Menu/menu');
 const { app, BrowserWindow, ipcMain } = require('electron');
 
 /* Create Browser Window */
