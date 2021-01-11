@@ -1,10 +1,9 @@
 import React from 'react';
-import Sidebar from './components/Sidebar'
-import Titlebar from './components/Titlebar'
+import Sidebar from './components/Sidebar/Sidebar'
+import Titlebar from './components/Titlebar/Titlebar'
 
 import 'tailwindcss/tailwind.css';
-
-function Scene() {
+function App() {
   return(
     <div className="flex bg-gray-100 font-sans">
       <Sidebar />
@@ -15,4 +14,4 @@ function Scene() {
   );
 }
 
-export default Scene;
+export default App;

@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
-const menu = require('./src/scene/Electron/menu');
+const menu = require('./src/components/Electron/menu');
 
 /* Create Browser Window */
 let win;
@@ -22,7 +22,7 @@ function createWindow() {
     }
   });
 
-  win.loadFile(path.join(__dirname, 'public/index.html'));
+  win.loadFile(path.join(__dirname, 'src/index.html'));
 }
 
 /* Initialize */
