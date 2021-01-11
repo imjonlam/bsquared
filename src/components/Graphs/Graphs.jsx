@@ -25,8 +25,21 @@ function Graphs(props) {
     });
   }, []);
 
+  useEffect(() => {
+    if (props.graphID) {
+      addGraphs(previousState => {
+        return [
+          ...previousState,
+          props.graphID
+        ];
+      });
+    }
+
+    console.log(graphs);
+  }, [props.graphID]);
+
   return (
-    <div>{props.graphID}</div>
+    <div>{graphs}</div>
   );
 }
 
