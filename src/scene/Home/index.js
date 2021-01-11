@@ -8,7 +8,7 @@ function Scene() {
   return(
     <div className="flex bg-gray-100 font-sans">
       <Sidebar />
-      <main className="flex-grow flex flex-col min-h-screen">
+      <main className="flex flex-grow flex-col min-h-screen">
         <Titlebar />
       </main>
     </div>

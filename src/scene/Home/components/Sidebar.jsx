@@ -9,7 +9,7 @@ import 'tailwindcss/tailwind.css';
 
 function Sidebar() {  
   return (
-    <aside className="bg-white w-50 min-h-screen flex flex-col">
+    <aside className="bg-white w-48 min-h-screen flex flex-col">
       <div className="h-8 border-r border-b flex flex-between items-center">
         <title className="ml-1 pl-1 flex flex-grow select-none draggable">BSquared</title>
         <button id="menu-btn" className="px-2 h-full focus:outline-none hover:bg-gray-400 active:bg-gray-500 undraggable">

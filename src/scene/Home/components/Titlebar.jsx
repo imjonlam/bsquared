@@ -9,7 +9,7 @@ import 'tailwindcss/tailwind.css';
 function Titlebar() {
   return (
     <header className="bg-white border-b h-8 flex justify-between">
-      <draggable className="mt-px flex flex-grow draggable"></draggable>
+      <div className="mt-px flex flex-grow draggable"></div>
       <div className="flex items-center justify-end">
         <button id="min-btn" className="px-4 h-full focus:outline-none hover:bg-gray-400 active:bg-gray-500 undraggable">
           <FontAwesomeIcon icon={faMinus}/>
