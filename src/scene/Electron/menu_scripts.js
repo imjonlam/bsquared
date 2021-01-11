@@ -6,7 +6,7 @@ function loadData() {
     // filters: [{ name: 'Data', extensions: ['csv'] }]
   }).then(data => {
     if (!data.canceled) {
-      BrowserWindow.getFocusedWindow().webContents.send('get-file', data);
+      BrowserWindow.getFocusedWindow().webContents.send('get-csv', data);
     }
   });
 }

@@ -11,7 +11,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'babel-loader?cacheDirectory',
           options: {
             presets: [[
               '@babel/preset-env', {
@@ -24,17 +24,17 @@ module.exports = {
         }
       },
       {
-        test: [/\.s[ac]ss$/i, /\.css$/i],
+        test: [/\.s[c]ss$/i, /\.css$/i],
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader',
+          'postcss-loader'
         ],
       }
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', 'jsx'],
   },
   output: {
     filename: 'app.js',

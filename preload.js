@@ -24,7 +24,7 @@ function openMenu(x, y) {
 /* Create Context Bridge API */
 contextBridge.exposeInMainWorld('api', {
   receive: (channel, cb) => {
-    const allowedChannels = ['get-file'];
+    const allowedChannels = ['get-csv'];
     if (allowedChannels.includes(channel)) {
       ipcRenderer.on(channel, (event, ...args) => cb(...args));
     }

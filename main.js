@@ -1,6 +1,7 @@
-const path = require('path');
-const menu = require('./src/components/Electron/menu');
 const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require('path');
+
+const menu = require('./src/scene/Electron/menu');
 
 /* Create Browser Window */
 let win;
@@ -8,13 +9,15 @@ function createWindow() {
   win = new BrowserWindow({
     width: 800,
     height: 600,
+    minWidth: 800,
+    minHeight: 600,
   
     frame: false,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
-      worldSafeExecuteJavaScript: true,
       enableRemoteModule: true,
+      worldSafeExecuteJavaScript: true,
       preload: path.join(__dirname, 'preload.js')
     }
   });
@@ -34,8 +37,5 @@ ipcMain.on('show-menu', (_, pt) => {
   });
 });
 
-/* Dev reload */
-// TODO: Add environment check
-require('electron-reload')(path.join(__dirname), {
-  electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
-});
+/* Dev reload TODO: Check environment */
+require('electron-reload')(__dirname);
