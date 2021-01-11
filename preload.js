@@ -1,13 +1,13 @@
-const { ipcRenderer, contextBridge } = require('electron');
-const { readRemoteFile } = require('react-papaparse');
+const {ipcRenderer, contextBridge} = require('electron');
+const {readRemoteFile} = require('react-papaparse');
 const remote = require('electron').remote;
 
 /* Custom titlebar */
 const win = remote.getCurrentWindow();
-window.onbeforeunload = () => { win.removeAllListeners(); }
+window.onbeforeunload = () => {win.removeAllListeners();}
 
 document.onreadystatechange = () => {
-  if (document.readyState == 'complete') { setTitlebarHandler(); }
+  if (document.readyState == 'complete') {setTitlebarHandler();}
 }
 
 function setTitlebarHandler() {
@@ -32,7 +32,7 @@ contextBridge.exposeInMainWorld('api', {
 });
 
 /* Event Listener for parsing CSV input */
-const readCSV = (url) => {
+const readCSV = url => {
   return new Promise((resolve, reject) => {
     readRemoteFile(url, {
       header: true,

@@ -1,12 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import React, {useState} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faBars} from "@fortawesome/free-solid-svg-icons";
 
 import './webkit.css'
 import 'tailwindcss/tailwind.css';
 
-function Sidebar() {
+function Sidebar(props) {
   const [isTemperature, selectTemperature] = useState(false);
+  const sendID = e => props.onClick(e.target.id);
   
   return (
     <aside className="bg-white w-48 min-h-screen flex flex-col">
@@ -23,14 +24,14 @@ function Sidebar() {
               <span onClick={() => selectTemperature(!isTemperature)} className="p-3 flex hover:bg-gray-400 active:bg-gray-500">Tire Temperatures</span>
               {isTemperature && (
                 <ul>
-                  <li className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500"> FL Outer </li>
-                  <li className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500"> FL Inner </li>
-                  <li className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500"> FR Outer </li>
-                  <li className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500"> FR Inner </li>
-                  <li className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500"> RL Outer </li>
-                  <li className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500"> RL Inner </li>
-                  <li className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500"> RR Outer </li>
-                  <li className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500"> RR Inner </li>
+                  <li id="FL_Outer" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">FL Outer</li>
+                  <li id="FL_Inner" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">FL Inner</li>
+                  <li id="FR_Outer" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">FR Outer</li>
+                  <li id="FR_Inner" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">FR Inner</li>
+                  <li id="RL_Outer" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">RL Outer</li>
+                  <li id="RL_Inner" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">RL Inner</li>
+                  <li id="RR_Outer" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">RR Outer</li>
+                  <li id="RR_Inner" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">RR Inner</li>
                 </ul>
               )}
             </li>

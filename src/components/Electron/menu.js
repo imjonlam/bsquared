@@ -1,5 +1,5 @@
-const { Menu } = require('electron');
-const { loadData } = require('./menu_scripts')
+const {Menu} = require('electron');
+const {loadData} = require('./menu_scripts')
 
 template = [
   {

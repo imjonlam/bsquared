@@ -1,9 +1,9 @@
-const { dialog, BrowserWindow } = require('electron');
+const {dialog, BrowserWindow} = require('electron');
 
 function loadData() {
   dialog.showOpenDialog({
     properties: ['openFile'],
-    // filters: [{ name: 'Data', extensions: ['csv'] }]
+    // filters: [{name: 'Data', extensions: ['csv']}]
   }).then(data => {
     if (!data.canceled) {
       BrowserWindow.getFocusedWindow().webContents.send('get-csv', data);
@@ -11,4 +11,4 @@ function loadData() {
   });
 }
 
-module.exports = { loadData };
+module.exports = {loadData};
