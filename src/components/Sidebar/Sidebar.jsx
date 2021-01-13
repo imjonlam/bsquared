@@ -7,7 +7,7 @@ import 'tailwindcss/tailwind.css';
 
 function Sidebar(props) {
   const [isTemperature, selectTemperature] = useState(false);
-  const sendID = e => props.onClick(e.target.id);
+  const sendID = props.onClick ? e => props.onClick(e.target.id, e.target.parentNode.id) : undefined;
   
   return (
     <aside className="bg-white w-48 min-h-screen flex flex-col">
@@ -23,7 +23,7 @@ function Sidebar(props) {
             <li>
               <span onClick={() => selectTemperature(!isTemperature)} className="p-3 flex hover:bg-gray-400 active:bg-gray-500">Tire Temperatures</span>
               {isTemperature && (
-                <ul>
+                <ul id="temperature">
                   <li id="FL_Outer" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">FL Outer</li>
                   <li id="FL_Inner" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">FL Inner</li>
                   <li id="FR_Outer" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">FR Outer</li>

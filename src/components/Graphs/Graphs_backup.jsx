@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 import 'tailwindcss/tailwind.css';
 
@@ -25,21 +24,53 @@ function Graphs(props) {
       }
     });
   }, []);
-  
-  return (
-    <div className="chart-wrapper">
-    {isLoading ?
-    <div>Loading...</div> :
-    <LineChart width={600} height={300} data={data} margin={{ top: 50, right: 30, bottom: 5, left: 0 }}>
-      <Line type="monotone" dataKey="Temperature" stroke="#8884d8" dot={false}/>
-      <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-      <XAxis dataKey="Time" />
-      <YAxis/>
-      <Tooltip />
-   </LineChart>
+
+  /* Handle Graph creation */
+  useEffect(() => {
+    if (props.graphID) {
+      addGraphs(previousState => {
+        return [
+          ...previousState,
+          props.graphID
+        ];
+      });
     }
-  </div>
+
+  }, [props.graphID]);
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  return (
+    <div>{graphs}</div>
   );
 }
 
 export default Graphs;
+
+/*
+Graphs does two things:
+1) Hold CSV Data
+2) Create Graph(S)
+
+*/
