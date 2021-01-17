@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import Titlebar from './components/Titlebar/Titlebar';
 import Instructions from './components/Instructions/Instructions';
-import TemperatureGraph from './components/Graphs/Temperature/TemperatureGraph';
-import GraphCard from './components/Graphs/GraphCard';
+
+import Graphs from './components/Graphs/Graphs';
 
 import 'tailwindcss/tailwind.css';
 
@@ -43,13 +43,9 @@ function App() {
       <main className="flex flex-grow overflow-hidden">
         <Sidebar onClick={!isLoading ? addGraph : undefined}/>
         <div className="flex flex-grow flex-col overflow-y-auto">
-          {isLoading && <Instructions />}
-          {!isLoading && 
-            graphs.map(graph => 
-              <GraphCard key={graph.id} id={graph.id} onClick={removeGraph}>
-                <TemperatureGraph data={data} xKey="SecondsMilliseconds" yKey={graph.id} />
-              </GraphCard>
-            )
+          {isLoading ? 
+            <Instructions /> : 
+            <Graphs graphs={graphs} data={data} xKey="SecondsMilliseconds" removeGraph={removeGraph}/>
           }
         </div>
       </main>
