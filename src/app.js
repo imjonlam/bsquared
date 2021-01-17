@@ -1,6 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import Titlebar from './components/Titlebar/Titlebar';
+import Instructions from './components/Instructions/Instructions';
+import TemperatureGraph from './components/Graphs/Temperature/TemperatureGraph';
+import GraphCard from './components/Graphs/GraphCard';
+
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 import 'tailwindcss/tailwind.css';
 
@@ -34,20 +39,19 @@ function App() {
     setGraphs(prev => prev.filter(graph => graph.id != id));
   }
 
-  const getCols = (xLabel, yLabel) => {
-    data.map(row => ({xLabel: row[xLabel], yLabel: row[yLabel]}));
-  }
-
   return (
     <div className="flex bg-gray-100 font-sans">
       <Sidebar onClick={!isLoading ? addGraph : undefined}/>
       <main className="flex flex-grow flex-col min-h-screen">
         <Titlebar />
-        <div>
-          {
-            graphs.map(graph => <p key={graph.id}>{graph.id} - {graph.category}</p>)
-          }
-        </div>
+        {isLoading && <Instructions />}
+        {!isLoading && 
+          graphs.map(graph => 
+            <GraphCard key={graph.id} id={graph.id} onClick={removeGraph}>
+              <TemperatureGraph data={data} xKey="SecondsMilliseconds" yKey={graph.id} />
+            </GraphCard>
+          )
+        }
       </main>
     </div>
   );

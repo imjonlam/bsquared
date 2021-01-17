@@ -51,6 +51,16 @@ const readCSV = url => {
 window.addEventListener('message', async event => {
   if (event.source !== window)  return;
   if (event.data.type == 'request') {
-    window.postMessage({type: 'response', content: await readCSV(event.data.content)}) // TODO: add promise handling
+    const data = await readCSV(event.data.content); // TODO: add promise handling
+
+    const modified = data.map(row => {
+      const s = row.Seconds;
+      const ms = row.Milliseconds;
+
+      row.SecondsMilliseconds = s + (ms / 1000);
+      return row;
+    });
+
+    window.postMessage({type: 'response', content: modified}) 
   }
 });
