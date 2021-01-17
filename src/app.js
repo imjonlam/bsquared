@@ -5,8 +5,6 @@ import Instructions from './components/Instructions/Instructions';
 import TemperatureGraph from './components/Graphs/Temperature/TemperatureGraph';
 import GraphCard from './components/Graphs/GraphCard';
 
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
-
 import 'tailwindcss/tailwind.css';
 
 function App() {
