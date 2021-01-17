@@ -40,18 +40,20 @@ function App() {
   }
 
   return (
-    <div className="flex bg-gray-100 font-sans">
-      <Sidebar onClick={!isLoading ? addGraph : undefined}/>
-      <main className="flex flex-grow flex-col min-h-screen">
-        <Titlebar />
-        {isLoading && <Instructions />}
-        {!isLoading && 
-          graphs.map(graph => 
-            <GraphCard key={graph.id} id={graph.id} onClick={removeGraph}>
-              <TemperatureGraph data={data} xKey="SecondsMilliseconds" yKey={graph.id} />
-            </GraphCard>
-          )
-        }
+    <div id="app" className="h-screen flex flex-col bg-gray-100 font-sans">
+      <Titlebar />
+      <main className="flex flex-grow overflow-hidden">
+        <Sidebar onClick={!isLoading ? addGraph : undefined}/>
+        <div className="flex flex-grow flex-col overflow-y-auto">
+          {isLoading && <Instructions />}
+          {!isLoading && 
+            graphs.map(graph => 
+              <GraphCard key={graph.id} id={graph.id} onClick={removeGraph}>
+                <TemperatureGraph data={data} xKey="SecondsMilliseconds" yKey={graph.id} />
+              </GraphCard>
+            )
+          }
+        </div>
       </main>
     </div>
   );
