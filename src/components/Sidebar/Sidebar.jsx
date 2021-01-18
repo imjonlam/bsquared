@@ -15,8 +15,8 @@ function Sidebar({onClick}) {
   const sendID = onClick ? e => onClick(e.target.id, e.target.parentNode.id) : undefined;
   
   return (
-    <aside className="bg-white w-40 border-r">
-      <nav className="flex flex-grow">
+    <aside className="bg-white w-40 border-r overflow-y-auto">
+      <nav className="flex  flex-col flex-grow">
         <ul className="select-none w-full">
           <li>
             <span onClick={toggleTempMenu} className="p-2 flex hover:bg-gray-400 active:bg-gray-500">Tire Temperatures</span>
@@ -53,7 +53,6 @@ function Sidebar({onClick}) {
                 <li id="GPS Speed" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">GPS Speed</li>
                 <li id="Vehicle Speed" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">Vehicle Speed</li>
                 <li id="RPM" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">RPM</li>
-                <li id="Test" onClick={sendID} className="pl-6 py-1 hover:bg-gray-400 active:bg-gray-500">Test</li>
               </ul>
             )}
           </li>
