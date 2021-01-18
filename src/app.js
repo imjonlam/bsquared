@@ -42,10 +42,8 @@ function App() {
       <main className="flex flex-grow overflow-hidden">
         <Sidebar onClick={!isLoading ? addGraph : undefined}/>
         <div className="flex flex-grow flex-col overflow-y-auto">
-          {graphs.length == 0 ?
-            <Instructions dataLoaded={!isLoading} /> :
-            <Generator graphs={graphs} data={data} removeGraph={removeGraph}/>
-          }
+          {graphs.length == 0 && <Instructions dataLoaded={!isLoading} />}
+          {!isLoading && <Generator graphs={graphs} data={data} removeGraph={removeGraph}/>}
         </div>
       </main>
     </div>

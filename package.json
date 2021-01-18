@@ -11,12 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-regular-svg-icons": "^5.15.1",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-regular-svg-icons": "^5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "autoprefixer": "^10.2.1",
-    "electron": "^11.1.1",
+    "electron": "^11.2.0",
     "install": "^0.13.0",
     "npm": "^6.14.11",
     "postcss": "^8.2.4",
@@ -24,7 +24,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-papaparse": "^3.11.1",
-    "recharts": "^2.0.0",
+    "recharts": "^2.0.3",
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
@@ -35,7 +35,7 @@
     "css-loader": "^5.0.1",
     "electron-reload": "^1.5.0",
     "style-loader": "^2.0.0",
-    "webpack": "^5.12.2",
+    "webpack": "^5.15.0",
     "webpack-cli": "^4.3.1"
   }
 }
