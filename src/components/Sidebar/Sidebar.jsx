@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import './webkit.css'
 import 'tailwindcss/tailwind.css';
 
-function Sidebar(props) {
+function Sidebar({onClick}) {
   const [isOpenTemp, setTemp] = useState(false);
   const [isOpenIMU, setIMU] = useState(false);
   const [isOpenSpeed, setSpeed] = useState(false);
@@ -12,7 +12,7 @@ function Sidebar(props) {
   const toggleIMUMenu = () => setIMU(!isOpenIMU)
   const toggleSpeedMenu = () => setSpeed(!isOpenSpeed)
   
-  const sendID = props.onClick ? e => props.onClick(e.target.id, e.target.parentNode.id) : undefined;
+  const sendID = onClick ? e => onClick(e.target.id, e.target.parentNode.id) : undefined;
   
   return (
     <aside className="bg-white w-40 border-r">

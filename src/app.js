@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import Titlebar from './components/Titlebar/Titlebar';
 import Instructions from './components/Instructions/Instructions';
-
-import Graphs from './components/Graphs/Graphs';
+import Generator from './components/Graphs/Generator';
 
 import 'tailwindcss/tailwind.css';
 
@@ -45,7 +44,7 @@ function App() {
         <div className="flex flex-grow flex-col overflow-y-auto">
           {isLoading ? 
             <Instructions /> : 
-            <Graphs graphs={graphs} data={data} xKey="SecondsMilliseconds" removeGraph={removeGraph}/>
+            <Generator graphs={graphs} data={data} removeGraph={removeGraph}/>
           }
         </div>
       </main>

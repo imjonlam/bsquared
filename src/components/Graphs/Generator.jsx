@@ -5,7 +5,8 @@ import IMUGraph from './IMU/IMUGraph';
 import SpeedGraph from './Speed/SpeedGraph';
 import TemperatureGraph from './Temperature/TemperatureGraph';
 
-function Graphs({graphs, data, xKey, removeGraph}) {
+function Graphs({graphs, data, removeGraph}) {
+  const xKey = 'SecondsMilliseconds';
   const dataKeys = Object.keys(data[0]);
 
   const renderGraph = graph => (
