@@ -2,16 +2,16 @@ import React, {useState, useEffect} from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import Titlebar from './components/Titlebar/Titlebar';
 import Instructions from './components/Instructions/Instructions';
-import Generator from './components/Graphs/Generator';
+import Graphs from './components/Graphs/Graphs';
 
 import 'tailwindcss/tailwind.css';
 
 function App() {
   const [data, setData] = useState(null);
+  const [keys, setKeys] = useState(null);
   const [graphs, setGraphs] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
-  /* Handle CSV */
   useEffect(() => {
     api.receive('get-csv', response => {
       const url = response.filePaths[0];
@@ -21,15 +21,15 @@ function App() {
     window.addEventListener('message', e => {
       if (e.source !== window) return;
       if (e.data.type == 'response') {
-        setData(e.data.content);
-        setGraphs([]);
         setLoading(false); 
+        setData(e.data.content);
+        setKeys(Object.keys(e.data.content[0]));
       }
     });
   }, []);
 
   const addGraph = (id, type_) => {
-    setGraphs(prev => !prev.some(graph => graph.id == id) ? [...prev, {id: id, category: type_}] : prev);
+    setGraphs(prev => !prev.some(graph => graph.id == id) && keys.includes(id) ? [...prev, {id: id, category: type_}] : prev);
   }
 
   const removeGraph = id => {
@@ -41,10 +41,8 @@ function App() {
       <Titlebar />
       <main className="flex flex-grow overflow-hidden">
         <Sidebar onClick={!isLoading ? addGraph : undefined}/>
-        <div className="flex flex-grow flex-col overflow-y-auto">
-          {graphs.length == 0 && <Instructions dataLoaded={!isLoading} />}
-          {!isLoading && <Generator graphs={graphs} data={data} removeGraph={removeGraph}/>}
-        </div>
+        {graphs.length == 0 && <Instructions isLoading={isLoading} />}
+        {!isLoading && <Graphs graphs={graphs} data={data} removeGraph={removeGraph}/>}
       </main>
     </div>
   );
