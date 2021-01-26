@@ -41,8 +41,10 @@ function App() {
       <Titlebar />
       <main className="flex flex-grow overflow-hidden">
         <Sidebar onClick={!isLoading ? addGraph : undefined}/>
-        {graphs.length == 0 && <Instructions isLoading={isLoading} />}
-        {!isLoading && <Graphs graphs={graphs} data={data} removeGraph={removeGraph}/>}
+        {graphs.length == 0 ? 
+          <Instructions isLoading={isLoading} /> : 
+          <Graphs graphs={graphs} data={data} removeGraph={removeGraph}/>
+        }
       </main>
     </div>
   );
