@@ -6,6 +6,7 @@ A desktop application developed to visualize tire temperature data recorded via.
 ## Technologies
 * **Framework**: Electron
 * **Front-end**: ReactJS
+* **Supplementary **: Recharts
 
 ## Current Progression
 **W.I.P**
