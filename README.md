@@ -1,4 +1,4 @@
-**BSquared Engineering Diagnostic Application**
+# bsquared-electron
 
 ## Description
 A desktop application developed to visualize tire temperature data recorded via. BSquared Engineering bluetooth sensors.
