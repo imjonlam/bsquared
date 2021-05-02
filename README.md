@@ -1,5 +1,11 @@
 **BSquared Engineering Diagnostic Application**
 
-Work In Progress.
+## Description
+A desktop application developed to visualize tire temperature data recorded via. BSquared Engineering bluetooth sensors.
 
-This is a diagnostic application using Electron that allows users to visualize their track recorded data.
+## Technologies
+* **Framework**: Electron
+* **Front-end**: ReactJS
+
+## Current Progression
+**W.I.P**
